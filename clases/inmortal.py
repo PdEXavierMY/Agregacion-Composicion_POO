@@ -5,11 +5,18 @@ class Yang:
  
 yin = Yin() 
 yang = Yang() 
+yin.yang = yang
  
-print(yang) 
+print(yang)
 #>>> <__main__.Yang object at 0x1011da828> 
-#>>> True 
+print(yang is yin.yang) 
+#>>> True
 del(yang)
 print("?")
-#>>> ? 
+print("codigo destruido")
+n=0
+while n<10:
+    print(1)
+    n+=1
+#>>> ?
 #Yang destruido
