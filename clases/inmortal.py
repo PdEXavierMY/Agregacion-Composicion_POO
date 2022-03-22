@@ -22,8 +22,17 @@ print("codigo destruido(porque no ejecuta??)")
 #Por culpa de la clase yin, las funciones de la clase yang no se ejecutan hasta el final del codigo(por el pass)
 #Es por esto que "Yang destruido" aparece al final del todo sin importar que programes, pero aparece en el orden correcto al eliminar el yin.yang
 
+class Yin: pass
+class Yang:
+    def __del__(self): 
+        print("Yang destruido") 
+ 
+yin = Yin() 
+yang = Yang() 
+yin.yang = yang
 
 yin.yang = None
+print("Ahora Yang se destruirá antes de la interrogación")
 print(yang)
 #>>> <__main__.Yang object at 0x1011da828> 
 print(yang is yin.yang) 
@@ -31,9 +40,5 @@ print(yang is yin.yang)
 del(yang)
 print("?")
 print("codigo destruido, ahora en el orden correcto")
-n=0
-while n<5:
-    print(1)
-    n+=1
 #>>> ?
 #Yang destruido
