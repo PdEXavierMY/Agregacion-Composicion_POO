@@ -11,9 +11,7 @@ class ciudad:
         for persona in empleados:
             if persona.edificio.ciudad.nombre == self.nombre:
                 print(str(persona.nombre)+" ha quedado desempleado por la catastrofe.")
-                del(persona)
-                print("El edificio "+str(persona.edificio)+" ha sido destruido.")
-                del(persona.edificio)
+                print("El edificio "+str(persona.edificio.nombre)+" ha sido destruido.")
 
 
 class empleado:
@@ -27,28 +25,26 @@ class edificio:
         self.nombre = nombre
         self.ciudad = ciudad
 
-Nueva_York = ciudad("Nueva York")
-Los_Angeles = ciudad("Los Angeles")
-A = edificio("A", Nueva_York)
-B = edificio("B", Nueva_York)
-C = edificio("C", Los_Angeles)
-Martin = empleado("Martin", "YooHoo!", A)
-Xing = empleado("Xing", "YooHoo!", B)
-Salim = empleado("Salim", "YooHoo!", C)
-empleados = [Martin, Xing, Salim]
-estatus = {"Nueva York": True, "Los Angeles": False}
+ciudad1 = ciudad("Nueva York")
+ciudad2 = ciudad("Los Angeles")
+A = edificio("A", ciudad1)
+B = edificio("B", ciudad1)
+C = edificio("C", ciudad2)
+e1 = empleado("Martin", "YooHoo!", A)
+e2 = empleado("Xing", "YooHoo!", B)
+e3 = empleado("Salim", "YooHoo!", C)
+empleados = [e1, e2, e3]
+estatus = {"Sedes YooHoo!":{str(ciudad1.nombre): {str(A.nombre): [str(e1.nombre), True], str(B.nombre): [str(e2.nombre), True]}, str(ciudad2.nombre): {str(C.nombre): [str(e3.nombre), True]}}}
 
 def iniciar():
     print("Se acerca la destruccion del mundo. ¿Que ciudad caerá primero?,")
-    genocidio = input("¿Nueva York(1) o Los Angeles(2)?: ")
-    if genocidio == int:
-        if genocidio == 1:
-            Nueva_York.catastrofe()
-        elif genocidio == 2:
-            Los_Angeles.catastrofe()
-        else:
-            print("Seleccione una opción válida")
-            iniciar()
+    genocidio = int(input("¿Nueva York(1) o Los Angeles(2)?: "))
+    if genocidio == 1:
+        ciudad1.catastrofe()
+    elif genocidio == 2:
+        ciudad2.catastrofe()
     else:
         print("Seleccione una opción válida")
         iniciar()
+
+iniciar()
