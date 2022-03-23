@@ -1,189 +1,192 @@
 # Agregacion-Composicion_POO
-<h1 align="center">Clases</h1>
+<h1 align="center">Agregación y Composición</h1>
 
 <h3 align="center">Autores de este proyecto:</h3>
 
-1. [@jmedina28](https://github.com/jmedina28)
 1. [@xavitheforce](https://github.com/Xavitheforce)
 ---
-En este [repositorio](https://github.com/jmedina28/EjerciciosClases) quedan resueltos los ejercicios de clases para POO. Para llevar a cabo el proyecto nos hemos documentado a través de la teoría que se encuentra en el campus virtual y de diversas fuentes que hemos encontrado.
+En este [repositorio](https://github.com/Xavitheforce/Agregacion-Composicion_POO) quedan resueltos los ejercicios de agregación y composición POO.
 ***
 ## Índice
-1. [Palíndromo (Método de clase).](#id1)
-3. [Palíndromo (Método de instancia).](#id2)
-3. [Puzzle.](#id3)
-4. [Logger.](#id4)
+1. [Catastrofe](#id1)
+3. [Inmortal](#id2)
+3. [Alternativa](#id3)
 ***
 
-## Ejercicio 1: Palíndromo (Método de clase)<a name="id1"></a>
+## Ejercicio 1: Catástrofe<a name="id1"></a>
 
 En este ejercicio he creado la clase Palindromo la cual contiene el método esPalindromo() el cual comprueba si una frase, una palabra, una combinación numérica o de símbolos forman palíndromos.
 
 El código empleado para resolverlo es el siguiente:
 
 ```python
-# Palíndromos
+from getopt import gnu_getopt
+from re import X
 
-class Palindromo:
+class ciudad:
+    def __init__(self, nombre):
+        self.nombre = nombre
+    
+    def catastrofe(self):
+        print("La ciudad "+str(self.nombre)+" ha sido destruida.")
+        for persona in empleados:
+            name = persona.edificio.ciudad.nombre
+            if name == self.nombre:
+                print(str(persona.nombre)+" ha quedado desempleado por la catastrofe.")
+                estatus["Sedes YooHoo!"][str(name)]["edificios"][str(persona.edificio.nombre)][0][1] = "Desempelado"
+                print("El edificio "+str(persona.edificio.nombre)+" ha sido destruido.")
+                estatus["Sedes YooHoo!"][str(name)]["edificios"][str(persona.edificio.nombre)][1] = False
+                estatus["Sedes YooHoo!"][str(name)]["estado"] = "Destruida"
+        print(estatus)
 
-    def esPalindromo(contenido):
-        a, b = 'áéíóúüñÁÉÍÓÚÜ', 'aeiouunAEIOUU'
-        tilde = str.maketrans(a, b)
-        contenido = contenido.lower()  # Convierto el texto en minúsculas.
-        contenido = contenido.replace(' ', '')  # Quito los espacios.
-        contenido = contenido.translate(tilde)  # Elimino las tildes.
-        lista = list(contenido)  # Convierto el contenido en una lista.
-        listaresultado = list(reversed(contenido))  # Invierto la lista.
-        if lista == listaresultado:  # Comparo el contenido original con el inverso.
-            print(True)
-            exit()
-        else:
-            print(False)
-            exit()
+
+class empleado:
+    def __init__(self, nombre, empresa, edificio):
+        self.nombre = nombre
+        self.empresa = empresa
+        self.edificio = edificio
+
+class edificio:
+    def __init__(self, nombre, ciudad):
+        self.nombre = nombre
+        self.ciudad = ciudad
+
+ciudad1 = ciudad("Nueva York")
+ciudad2 = ciudad("Los Angeles")
+A = edificio("A", ciudad1)
+B = edificio("B", ciudad1)
+C = edificio("C", ciudad2)
+e1 = empleado("Martin", "YooHoo!", A)
+e2 = empleado("Xing", "YooHoo!", B)
+e3 = empleado("Salim", "YooHoo!", C)
+empleados = [e1, e2, e3]
+estatus = {"Sedes YooHoo!":{str(ciudad1.nombre): {"estado": "operativa", "edificios": {str(A.nombre): [[str(e1.nombre), "Empleado"], True], str(B.nombre): [[str(e2.nombre), "Empleado"], True]}}, str(ciudad2.nombre): {"estado": "operativa", "edificios": {str(C.nombre): [[str(e3.nombre), "Empleado"], True]}}}}
+
+def iniciar():
+    print(estatus)
+    print("Se acerca la destruccion del mundo. ¿Que ciudad caerá primero?,")
+    genocidio = int(input("¿Nueva York(1) o Los Angeles(2)?: "))
+    c = 0
+    if genocidio == 1:
+        ciudad1.catastrofe()
+        c = 1
+    elif genocidio == 2:
+        ciudad2.catastrofe()
+        c = 2
+    else:
+        print("Seleccione una opción válida")
+        iniciar()
+    print("¿Quiere destruir la otra ciudad?(1 = Sí)")
+    seguir = int(input("Por favor introduzca un número: "))
+    if seguir == 1:
+        if c == 1:
+            ciudad2.catastrofe()
+        elif c == 2:
+            ciudad1.catastrofe()
+    else:
+        print("Pronto caerá todo...")
 ```
 
 
-## Ejercicio 2: Palíndromo (Método de instancia)<a name="id2"></a>
+## Ejercicio 2: Inmortal<a name="id2"></a>
 
 En este ejercicio he reutilizado la función del ejercicio anterior que comprueba si una palabra/frase es un palíndromo. Adicionalmente, he creado un fichero que almacena los distintos valores que la variable va tomando para poder registrarlos, además de una función que imprime en pantalla el valor actual que toma la variable de no ser esta un palíndromo. En caso contrario, el método ejecutar imprime el último registro antes de modificar la variable.
 
 
-El código empleado para resolverlo es el siguiente:
+El código comentado y resuelto es el siguiente:
  
  ```python
-# Palíndromos
-
-from operator import truediv
-import os
-import re
-
-
-class Palindromos():
-    def __init__(self, atributo):
-        self.atributo = atributo
-
-    def test(self, contenido):
-        a, b = 'áéíóúüñÁÉÍÓÚÜ', 'aeiouunAEIOUU'
-        self.tilde = str.maketrans(a, b)
-        contenido = contenido.lower()  # Convierto el texto en minúsculas.
-        contenido = contenido.replace(' ', '')  # Quito los espacios.
-        contenido = contenido.translate(self.tilde)  # Elimino las tildes.
-        self.lista = list(contenido)  # Convierto el atributo en una lista.
-        # Invierto la lista.
-        self.listaresultado = list(reversed(contenido))
-        # Comparo el atributo original con el inverso.
-        if self.lista == self.listaresultado:
-            return True
-        else:
-            return False
-
-    def destructor(self):
-        self.doct = open("Palindromos.txt", "r")
-        ultima_linea = self.doct.readlines()[-1]
-        if Palindromos(self.atributo).test(self.atributo) == False:
-            print(str(ultima_linea))
-        self.doct.close()
-
-    def ejecutar(self):
-        self.doct = open("Palindromos.txt", "r")
-        self.ultima_linea = self.doct.readlines()[-1]
-        if self.ultima_linea != "#" and Palindromos(self.atributo).test(self.ultima_linea) == True:
-            print(str(self.ultima_linea))
-        self.doct.close()
-        self.m_atributo = Palindromos(self.atributo).atributo.upper()
-        self.doct = open("Palindromos.txt", "a")
-        self.doct.write("\n"+str(self.m_atributo))
-        self.doct.close()
-        if Palindromos(self.atributo).test(self.atributo) == True:
-            print(True)
-        else:
-            print(False)
-        Palindromos(self.atributo).destructor()
-```
-Pregunta adicional: ¿por qué se muestra RADAR después de la instanciación Palindromo("sonar")?
-La respuesta es porque RADAR es un palindromo, mientras que SONAR no, así que probablemente cuando la instancia es un palindromo no la destruye, sino que espera a la siguiente instancia para ello, mientras que si no es un palindromo es probable que inmediatamente la destruya. Como al destruir, el codigo muestra el dato, eso explica por qué RADAR se muestra despues de instanciar SONAR.
-
-El UML es el siguiente:
-
-<br>
-<img height="250" src="UML/Palindromos.jpg" />
-<br>
-
-
-## Ejercicio 3: Puzzle<a name="id3"></a>
-
-
-El código con su funcionamiento explicado es el siguiente:
+class Yin: pass
+class Yang:
+    def __del__(self): 
+        print("Yang destruido") 
  
- ```python
- class A: 
-    def z(self): 
-        return self 
+yin = Yin() 
+yang = Yang() 
+yin.yang = yang
  
-    def y(self, t): 
-        return len(t)
+print(yang)
+#>>> <__main__.Yang object at 0x1011da828> 
+print(yang is yin.yang) 
+#>>> True
+del(yang)
+print("?")
+print("codigo destruido(porque no ejecuta??)")
+#>>> ?
+#Yang destruido
 
-def puzzle(): 
-    a = A # a es la clase definida A
-    y = a.z # esta linea crea una variable "y" y la convierte en la funcion z de la clase A
-    print(y(a)) #La variable y (que es la funcion z de la clase A) recoge un valor y lo devuelve.
-    #En este caso y recoge a, que es la clase A, y por eso devuelve <class '__main__.A'>
-    aa = a() #ambos son la misma clase, pero variables distintas
-    print(a())
-    print(aa)
-    print(aa is a()) #El resultado es Falso porque los objetos(las clase) estan "guardadas" en posiciones distintas,
-    # asi que aunque funcionalmente son lo mismo, la maquina las recuerda/almacena de distinta manera
-    z = aa.y #Convierte la variable z en la funcion y que devuelve la longuitud de una variable
-    print(z(())) #la funcion y recibiendo un valor (tupla) vacio, por lo que devuelve 0
-    print(a().y((a,))) #la funcion y de la clase A recibiendo un valor (tupla) de 1 elemento, por lo que devuelve 1
-    print(A.y(aa, (a,z))) #la funcion y llamada desde A, que recoge una tupla de 2 elementos(devuelve 2)
-    # El aa es el equivalente al self en al funcion y, (la clase con self). Llamar A directamente daria error(faltan elementos)
-    print(aa.y((z,1,'z'))) #la funcion y de la clase A recibiendo un valor (tupla) de 3 elemento, por lo que devuelve 3
+#El mensaje aparece despues de la interrogación por culpa de la variable yin.yang
+#Esta variable traspasa los metodos de la clase yin(el pass) a la clase yang (yin.atributo = yang . En este caso yin.yang = yang)
+#Por culpa de la clase yin, las funciones de la clase yang no se ejecutan hasta el final del codigo(por el pass)
+#Es por esto que "Yang destruido" aparece al final del todo sin importar que programes, pero aparece en el orden correcto al eliminar el yin.yang
 
+class Yin: pass
+class Yang:
+    def __del__(self): 
+        print("Yang destruido") 
+ 
+yin = Yin() 
+yang = Yang() 
+yin.yang = yang
+
+yin.yang = None
+print("\nAhora Yang se destruirá antes de la interrogación:\n")
+print(yang)
+#>>> <__main__.Yang object at 0x1011da828> 
+print(yang is yin.yang) 
+#>>> True
+del(yang)
+print("?")
+print("codigo destruido, ahora en el orden correcto")
+print("\nPara ver el por qué del código revisar código comentado.")
+#>>> ?
+#Yang destruido
 ```
+(Al ser una lectura de código no tiene UML)
 
-## Ejercicio 4: Logger<a name="id4"></a>
 
-En este ejercicio he creado la clase Logger la cual ejecuta un método que crea un fichero de text en el que almacena n cantidad de llamadas establecidas por el usuario.
+## Ejercicio 3: Alternativa<a name="id3"></a>
 
 
 El código empleado para resolverlo es el siguiente:
  
  ```python
-# Logger
+from ast import In
 
-import os
-import time
+class Interfaz_cristal():
 
-class Logger:
+  casa = {}
+  orientaciones = ['NORTE', 'SUR', 'ESTE', 'OESTE']
 
-    def seguimientollamadas(n, mensaje):
-        print("Se está generando el fichero de texto...")
-        fichero = open("Logger.txt", "a")
-        fichero.write("--Start log--")
+  def Paredes(self, orientacion):
+    for i in range(len(orientacion)):
+      nombre = orientacion[i]
+      Interfaz_cristal.casa[nombre] = {
+          'ventanas': {},
+      }
+    print(Interfaz_cristal.casa)
+    Interfaz_cristal().Ventanas([['NORTE', 0.5, ''], ['SUR', 1, ''], ['ESTE', 2, ''], ['OESTE', 1, '']])
+  def Ventanas(self, ventanas):
+    for i in range(len(ventanas)):
+      nombre = ventanas[i][0]
+      Interfaz_cristal.casa[nombre]['ventanas'] = {
+        'superficie': ventanas[i][1],
+        'proteccion': ventanas[i][2]
+      }
+    print(Interfaz_cristal.casa)
+    Interfaz_cristal().Superficie()
+  def Superficie(self):
+    total = 0
+    for i in range(len(Interfaz_cristal.orientaciones)):
+      total += Interfaz_cristal.casa[Interfaz_cristal.orientaciones[i]]['ventanas']['superficie']
+    print('Superficie acristalada: ' + str(total))
+  def ParedCortina(self, orientacion, tamaño):
+    Interfaz_cristal.casa[orientacion]['ventanas']['superficie'] += tamaño
+    print(Interfaz_cristal.casa)
+  def ComprobarProteccion(self, orientacion):
+    if Interfaz_cristal.casa[orientacion]['ventanas']['proteccion'] != '':
+      print('Protección en regla.')
+    else:
+      print('Protección obligatoria no presente.')
 
-        for i in range(1, int(n)+1):
-            if i == 1:
-                fichero.write("\nPrimer mensaje: "+ str(mensaje))
-            else:
-                fichero.write("\n" + str(i) + " mensaje: " + str(mensaje))
-        fichero.write("\n--End log: " + str(n) + " log(s)--")
-        fichero.close()
-        time.sleep(4)
-        print("Usted ya puede abrir el fichero que se encuentra dentro de la carpeta en la que está ejecutando esto.")
-        time.sleep(8)
-        variable = int(input(
-            "¿Desea limpiar el registro? (Pulse 1 en caso afirmativo, en caso contrario pulse cualquier otro valor): "))
-        if variable == 1:
-            os.remove("Logger.txt")
-            exit()
-        else:
-            print("En este caso, si desea volver a ejecutar el programa tendrá que eliminar manualmente el fichero de texto.")
-            exit()
 ```
-El UML es el siguiente:
-
-<br>
-<img height="100" src="UML/Logger.jpg" />
-<br>
-
