@@ -24,3 +24,5 @@ C = edificio("C", Los_Angeles)
 Martin = empleado("Martin", "YooHoo!", A)
 Xing = empleado("Xing", "YooHoo!", B)
 Salim = empleado("Salim", "YooHoo!", C)
+
+estatus = {"Nueva York": True, "Los Angeles": False}
