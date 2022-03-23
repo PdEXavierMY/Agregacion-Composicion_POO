@@ -195,5 +195,5 @@ class Interfaz_cristal():
 Su UML es el siguiente:
 
 <br>
-<img height="250" src="UML UML Alternativa.jpg" />
+<img height="250" src="UML/UML Alternativa.jpg" />
 <br>
