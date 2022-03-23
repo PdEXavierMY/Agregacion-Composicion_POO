@@ -1,7 +1,3 @@
-class empresa:
-    def __init__(self, nombre):
-        self.nombre = nombre
-
 class ciudad:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -10,8 +6,9 @@ class ciudad:
         print("La ciudad "+str(self.nombre)+" ha sido destruida.")
 
 class empleado:
-    def __init__(self, nombre, edificio):
+    def __init__(self, nombre, empresa, edificio):
         self.nombre = nombre
+        self.empresa = empresa
         self.edificio = edificio
 
 class edificio:
@@ -24,6 +21,6 @@ Los_Angeles = ciudad("Los_Angeles")
 A = edificio("A", Nueva_York)
 B = edificio("B", Nueva_York)
 C = edificio("C", Los_Angeles)
-Martin = empleado("Martin", A)
-Xing = empleado("Xing", B)
-Salim = empleado("Salim", C)
+Martin = empleado("Martin", "YooHoo!", A)
+Xing = empleado("Xing", "YooHoo!", B)
+Salim = empleado("Salim", "YooHoo!", C)
