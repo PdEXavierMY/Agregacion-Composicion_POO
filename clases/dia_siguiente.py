@@ -63,6 +63,3 @@ def iniciar():
             ciudad1.catastrofe()
     else:
         print("Pronto caerá todo...")
-
-
-iniciar()

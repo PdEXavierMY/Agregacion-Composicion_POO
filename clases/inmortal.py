@@ -32,7 +32,7 @@ yang = Yang()
 yin.yang = yang
 
 yin.yang = None
-print("Ahora Yang se destruirá antes de la interrogación")
+print("\nAhora Yang se destruirá antes de la interrogación:\n")
 print(yang)
 #>>> <__main__.Yang object at 0x1011da828> 
 print(yang is yin.yang) 
@@ -40,5 +40,6 @@ print(yang is yin.yang)
 del(yang)
 print("?")
 print("codigo destruido, ahora en el orden correcto")
+print("\nPara ver el por qué del código revisar código comentado.")
 #>>> ?
 #Yang destruido

@@ -1,8 +1,9 @@
-from clases.dia_siguiente import iniciar
+from clases.dia_siguiente import *
 from clases.alternativa_herencia_multiple import *
 
 def ejercicios():
     n = int(input("¿Qué ejercicio quieres ejecutar(1, 2 o 3)?: "))
+    print("")
     if n == 1:
         iniciar()
     elif n == 2:
