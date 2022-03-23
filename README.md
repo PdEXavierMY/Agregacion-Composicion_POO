@@ -15,7 +15,7 @@ En este [repositorio](https://github.com/Xavitheforce/Agregacion-Composicion_POO
 
 ## Ejercicio 1: Catástrofe<a name="id1"></a>
 
-En este ejercicio he creado la clase Palindromo la cual contiene el método esPalindromo() el cual comprueba si una frase, una palabra, una combinación numérica o de símbolos forman palíndromos.
+En este ejercicio he definido los distintos elementos requeridos(ciudades, empleados, edificios), y los he agrupado en un diccionario de diccionarios y listas. El código, en función de la ciudad destruida, actualiza el diccionario para emitir el estado actual de las ciudades de la empresa YooHoo!
 
 El código empleado para resolverlo es el siguiente:
 
@@ -90,9 +90,6 @@ def iniciar():
 
 ## Ejercicio 2: Inmortal<a name="id2"></a>
 
-En este ejercicio he reutilizado la función del ejercicio anterior que comprueba si una palabra/frase es un palíndromo. Adicionalmente, he creado un fichero que almacena los distintos valores que la variable va tomando para poder registrarlos, además de una función que imprime en pantalla el valor actual que toma la variable de no ser esta un palíndromo. En caso contrario, el método ejecutar imprime el último registro antes de modificar la variable.
-
-
 El código comentado y resuelto es el siguiente:
  
  ```python
@@ -147,6 +144,7 @@ print("\nPara ver el por qué del código revisar código comentado.")
 
 ## Ejercicio 3: Alternativa<a name="id3"></a>
 
+Este ejercicio es una modificación de uno resuelto en una entrega grupal pasada. Simplemente he agrupado todo en una misma clase llamada Interfaz_cristal.
 
 El código empleado para resolverlo es el siguiente:
  
