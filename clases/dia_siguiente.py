@@ -14,6 +14,7 @@ class ciudad:
                 print(str(persona.nombre)+" ha quedado desempleado por la catastrofe.")
                 estatus["Sedes YooHoo!"][str(name)][str(persona.edificio.nombre)][0][1] = "Desempelado"
                 print("El edificio "+str(persona.edificio.nombre)+" ha sido destruido.")
+                estatus["Sedes YooHoo!"][str(name)][str(persona.edificio.nombre)][1] = False
                 estatus["Sedes YooHoo!"][str(name)]["estado"] = "Destruida"
         print(estatus)
 
