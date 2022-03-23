@@ -89,7 +89,7 @@ def iniciar():
 Su UML es el siguiente:
 
 <br>
-<img height="300" src="UML/Catastrofe(herencias).jpg" />
+<img height="500" src="UML/Catastrofe(herencias).jpg" />
 <br>
 
 ## Ejercicio 2: Inmortal<a name="id2"></a>
