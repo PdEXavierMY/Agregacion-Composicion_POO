@@ -9,9 +9,13 @@ class ciudad:
     def catastrofe(self):
         print("La ciudad "+str(self.nombre)+" ha sido destruida.")
         for persona in empleados:
-            if persona.edificio.ciudad.nombre == self.nombre:
+            name = persona.edificio.ciudad.nombre
+            if name == self.nombre:
                 print(str(persona.nombre)+" ha quedado desempleado por la catastrofe.")
+                estatus["Sedes YooHoo!"][str(name)][str(persona.edificio.nombre)][0][1] = "Desempelado"
                 print("El edificio "+str(persona.edificio.nombre)+" ha sido destruido.")
+                estatus["Sedes YooHoo!"][str(name)]["estado"] = "Destruida"
+        print(estatus)
 
 
 class empleado:
@@ -34,7 +38,7 @@ e1 = empleado("Martin", "YooHoo!", A)
 e2 = empleado("Xing", "YooHoo!", B)
 e3 = empleado("Salim", "YooHoo!", C)
 empleados = [e1, e2, e3]
-estatus = {"Sedes YooHoo!":{str(ciudad1.nombre): {str(A.nombre): [[str(e1.nombre), "Empleado"], True], str(B.nombre): [[str(e2.nombre), "Empleado"], True]}, str(ciudad2.nombre): {str(C.nombre): [[str(e3.nombre), "Empleado"], True]}}}
+estatus = {"Sedes YooHoo!":{str(ciudad1.nombre): {"estado": "operativa", str(A.nombre): [[str(e1.nombre), "Empleado"], True], str(B.nombre): [[str(e2.nombre), "Empleado"], True]}, str(ciudad2.nombre): {"estado": "operativa", str(C.nombre): [[str(e3.nombre), "Empleado"], True]}}}
 
 def iniciar():
     print(estatus)
