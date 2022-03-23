@@ -86,7 +86,11 @@ def iniciar():
     else:
         print("Pronto caerá todo...")
 ```
+Su UML es el siguiente:
 
+<br>
+<img height="250" src="UML/UML Catastrofe(herencias).jpg" />
+<br>
 
 ## Ejercicio 2: Inmortal<a name="id2"></a>
 
@@ -188,3 +192,8 @@ class Interfaz_cristal():
       print('Protección obligatoria no presente.')
 
 ```
+Su UML es el siguiente:
+
+<br>
+<img height="250" src="UML Alternativa.jpg" />
+<br>
