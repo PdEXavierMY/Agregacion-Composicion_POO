@@ -34,9 +34,10 @@ e1 = empleado("Martin", "YooHoo!", A)
 e2 = empleado("Xing", "YooHoo!", B)
 e3 = empleado("Salim", "YooHoo!", C)
 empleados = [e1, e2, e3]
-estatus = {"Sedes YooHoo!":{str(ciudad1.nombre): {str(A.nombre): [str(e1.nombre), True], str(B.nombre): [str(e2.nombre), True]}, str(ciudad2.nombre): {str(C.nombre): [str(e3.nombre), True]}}}
+estatus = {"Sedes YooHoo!":{str(ciudad1.nombre): {str(A.nombre): [[str(e1.nombre), "Empleado"], True], str(B.nombre): [[str(e2.nombre), "Empleado"], True]}, str(ciudad2.nombre): {str(C.nombre): [[str(e3.nombre), "Empleado"], True]}}}
 
 def iniciar():
+    print(estatus)
     print("Se acerca la destruccion del mundo. ¿Que ciudad caerá primero?,")
     genocidio = int(input("¿Nueva York(1) o Los Angeles(2)?: "))
     if genocidio == 1:
